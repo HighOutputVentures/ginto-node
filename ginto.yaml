@@ -9,10 +9,19 @@ resources:
       minimum: nano
       default: nano
     platform: node
-    build: npm run build
-    start: npm start
+    build: rm -rf ./node && git clone {{ repository.url }} ./node --branch {{ repository.branch }} --depth 1 && cd ./node && {{ build }}
+    start: '{{ start }}'
     https: true
 inputs:
   - name: repository
     label: Github Repository
     type: github_repository
+    required: true
+  - name: build
+    label: Build Command
+    type: text
+    default: npm run build
+  - name: start
+    label: Start Command
+    type: text
+    default: npm start
