@@ -10,12 +10,12 @@ resources:
       default: nano
     platform: node
     build: rm -rf ./node && git clone {{ repository.url }} ./node --branch {{ repository.branch }} --depth 1 && cd ./node && {{ build }}
-    start: '{{ start }}'
+    start: cd ./node && {{ start }}
     https: true
 inputs:
   - name: repository
     label: Github Repository
-    type: github_repository
+    type: github
     required: true
   - name: build
     label: Build Command
