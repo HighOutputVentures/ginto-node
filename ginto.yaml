@@ -1,0 +1,18 @@
+version: 0.1
+name: NodeJS
+description: NodeJS webservice automatic deployment via Github.
+image: logo.png
+resources:
+  - name: main
+    type: container
+    size:
+      minimum: nano
+      default: nano
+    platform: node
+    build: npm run build
+    start: npm start
+    https: true
+inputs:
+  - name: repository
+    label: Github Repository
+    type: github_repository
