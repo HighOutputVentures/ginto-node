@@ -17,6 +17,9 @@ resources:
       {{ build }}
     start: cd ./project && {{ start }}
     https: true
+    rebuild:
+      type: github
+      value: '{{ repository.name }}'
 inputs:
   - name: repository
     label: Github Repository
