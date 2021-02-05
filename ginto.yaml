@@ -19,7 +19,9 @@ resources:
     https: true
     rebuild:
       type: github
-      value: '{{ repository.name }}'
+      repository:
+        name: '{{ repository.name }}'
+        branch: '{{ repository.branch }}'
 inputs:
   - name: repository
     label: Github Repository
