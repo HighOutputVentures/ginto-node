@@ -17,11 +17,11 @@ resources:
       {{ build }}
     start: cd ./project && {{ start }}
     https: true
-    rebuild:
-      type: github
-      repository:
-        name: '{{ repository.name }}'
-        branch: '{{ repository.branch }}'
+    triggers:
+      - type: github
+        repository:
+          name: '{{ repository.name }}'
+          branch: '{{ repository.branch }}'
 inputs:
   - name: repository
     label: Github Repository
