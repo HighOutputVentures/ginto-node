@@ -17,11 +17,6 @@ resources:
       {{ build }}
     start: cd ./project && {{ start }}
     https: true
-    triggers:
-      - type: github
-        repository:
-          name: '{{ repository.name }}'
-          branch: '{{ repository.branch }}'
 inputs:
   - name: repository
     label: Github Repository
@@ -35,3 +30,8 @@ inputs:
     label: Start Command
     type: text
     default: npm start
+triggers:
+  - type: github
+    repository:
+      name: '{{ repository.name }}'
+      branch: '{{ repository.branch }}'
