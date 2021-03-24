@@ -27,11 +27,20 @@ inputs:
     label: Github Repository
     type: github
     required: true
+    description: Repository containing the source code.
   - name: build
     label: Build Command
     type: text
     default: npm run build
+    description: Command to execute when building the service.
+    validation:
+      message: Should be a valid bash command.
+      regex: ^.+$
   - name: start
     label: Start Command
     type: text
     default: npm start
+    description: Command to execute when starting the service.
+    validation:
+      message: Should be a valid bash command.
+      regex: ^.+$
